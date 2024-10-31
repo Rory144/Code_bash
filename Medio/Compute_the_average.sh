@@ -9,27 +9,42 @@
 # more details.
 #-----------------------------------------------------------------------
 
+#Description: 
+#Given N integers, compute their average, rounded to three decimal places.
 
-# Leer el valor de N, que indica la cantidad de números enteros a procesar
+#Input Format:
+#The first line contains an integer, N .
+#Each of the following N lines contains a single integer.
+
+#Output Format:
+# Display the average of the N integers, rounded off to three decimal places.
+
+#Input Constraints 
+# 1. 1<= N <=500
+# 2. -10000 <= x <=10000 (x refers to elements of the list of integers for which the average is to be computed)
+
+
+
+# 1. Read the value of N 
 read N
 
-# Inicializamos una variable para la suma en 0
+# Inicialize a variable for the sum 
 sum=0
 
-# Iniciamos un bucle que se repetirá N veces, de 1 hasta N inclusive
+# Inicialize a loop that will be repetive N times, from 1 to N, both inclusive
 for (( i=1; i<=$N; i++ ))
 do
-    # Leemos un número entero en cada iteración y lo guardamos en la variable `num`
-    read num
+    # Read a float number for each iteration and it will be save in the variable 'x'
+    read x
     
-    # Sumamos el valor de `num` a la variable `sum`
-    ((sum+=num))
+    # The value of 'x' is added to the variable 'sum'
+    ((sum += x))
 done
 
-# Calculamos el promedio usando el comando `bc` para precisión decimal
-# La expresión `scale=4` establece la precisión de la división a 4 decimales
-# Luego, la expresión $sum / $N realiza la división de la suma entre N
+# Calculate the average using the command 'bc' for decimal precision 
+# `scale=4` stablish the precision of the division to 4 decimals
+# $sum/$N do division of the sum between N 
 average=$(echo "scale=4; $sum / $N" | bc)
 
-# Imprimimos el promedio redondeado a tres decimales usando `printf`
+#Print the rounded average to 3 decimals using 'printf'
 printf "%.3f\n" $average

@@ -1,34 +1,27 @@
 #!/bin/bash
-
 #------------------------------------------------------------------------
 # Copyright (c) [2024] [Rosell Martín Gómez] 
 #
-# Permission is granted to use, modify and distribute this
-# software, with or without modification, under the terms of the
-# MIT License. See the LICENSE file for more details.
-# more details.
+# Permission is granted to use, modify and distribute this # software, with or without modifications, under the terms of the # MIT License.
+# software, with or without modification, under the terms of the # MIT License.
+MIT # License. See the LICENSE file for more details.
 #-----------------------------------------------------------------------
+# Description: This script is used to generate a mathematical # expression containing +, -, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *. 
+# containing +, -, *, *, ^, / and parentheses. The expression will be evaluated 
+# and the result will be displayed rounded to three decimal places.
+# Restrictions: All numeric values are <= 999.
 
-
-# Description: This script is used to generate a mathematical expression containing +,-,*,^, / 
-# and parenthesis will be provided. Read in the expression, then evaluate it. 
-#Display the result rounded to  decimal places.
-
-#Constraints: all numeric values are <= 999.
-
-# Lee la entrada del usuario desde la línea de comandos y la asigna a la variable "input".
+# 1. Read input and assign it to the variable “input”.
 read input
+# 2. Process the input value and perform the following operations:
+    # 2.1. Echo the input value.
+    # 2.2. The pipe operator (|) takes the output of one command and uses it as input for another command.
+    # 2.3. The bc command is used to perform mathematical calculations. 
+    # It can handle basic arithmetic operations as well as more complex mathematical functions.
+    # 2.4. The -l option: tells bc to load the “math library”. 
+    # This means that additional mathematical functions are enabled: sin, cos, sqrt, precise decimals.
+    # Without the -l option, bc would only handle integers. 
+result=$(echo “$input” | bc -l)
 
-# Procesa el valor de la variable "input" y realiza las siguientes operaciones:
-
-    # 1. echo $input: Imprime el valor de la variable "input" (que contiene el valor ingresado por el usuario).
-
-    # 2. | bc -l: Pasa el valor de "input" al comando "bc" (una calculadora en línea de comandos). 
-    #    La opción "-l" habilita la biblioteca matemática para permitir cálculos de precisión decimal.
-
-    # 3. $(...): Ejecuta el resultado del comando dentro de los paréntesis, en este caso el cálculo de "bc -l".
-    # 4. printf %.3f: Toma el valor calculado por "bc -l" y lo formatea a 3 decimales usando "printf".
-    #    El formato "%.3f" indica que se mostrarán tres decimales.
-    # 5. echo $(...): Finalmente, "echo" imprime en pantalla el valor formateado a 3 decimales.
-
-echo $(printf %.3f $(echo $input | bc -l))
+# 3.Print the result rounded to three decimal places using "printf"
+printf "Result: %.3f\n" "$result"
