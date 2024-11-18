@@ -23,8 +23,6 @@
 # 1. 1<= N <=500
 # 2. -10000 <= x <=10000 (x refers to elements of the list of integers for which the average is to be computed)
 
-
-
 # 1. Read the value of N 
 read N
 

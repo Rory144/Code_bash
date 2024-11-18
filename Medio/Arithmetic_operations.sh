@@ -4,7 +4,7 @@
 #
 # Permission is granted to use, modify and distribute this # software, with or without modifications, under the terms of the # MIT License.
 # software, with or without modification, under the terms of the # MIT License.
-#MIT # License. See the LICENSE file for more details.
+MIT # License. See the LICENSE file for more details.
 #-----------------------------------------------------------------------
 # Description: This script is used to generate a mathematical # expression containing +, -, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *. 
 # containing +, -, *, *, ^, / and parentheses. The expression will be evaluated 
